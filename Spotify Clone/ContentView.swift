@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selection = 0
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView(selection: $selection) {
+            Text("Potato")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "magnifyingglass.circle.fill")
+                        Text("Search")
+                    }
+                }
+                .tag(0)
+            Text("Hello, world! Second Tab")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "house.circle.fill")
+                        Text("Home")
+                    }
+                }
+                .tag(1)
         }
-        .padding()
     }
 }
 
